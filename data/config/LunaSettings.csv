@@ -1,0 +1,2 @@
+fieldID,fieldName,fieldType,defaultValue,secondaryValue,fieldDescription,minValue,maxValue,tab
+supplyReductionPercent,Supply Reduction Percent,Int,100,,"How much of supply maintenance cost is removed while your fleet is in orbit. 100 = completely free, 50 = half cost, 0 = no effect.",0,100,
