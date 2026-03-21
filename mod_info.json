@@ -1,0 +1,16 @@
+{
+    "id": "free_orbit",
+    "name": "Free Orbit",
+    "author": "Vladitron96",
+    "version": "1.2",
+    "description": "While your fleet is orbiting a station or planet, ships do not consume supplies for maintenance. Supports LunaLib for configurable reduction amount.",
+    "gameVersion": "0.98a-RC8",
+    "modPlugin": "data.scripts.FreeOrbitPlugin",
+    "dependencies": [
+        {
+            "id": "lunalib",
+            "name": "LunaLib",
+            "required": false
+        }
+    ]
+}
