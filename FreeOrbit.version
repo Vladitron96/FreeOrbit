@@ -2,11 +2,13 @@
     "masterVersionFile": "https://gist.githubusercontent.com/Vladitron96/49a4689f69beed8e4aeb1cb66d76c5b5/raw/FreeOrbit.version",
     "modName": "Free Orbit",
     "modThreadId": 35071,
-    "directDownloadURL": "https://drive.google.com/file/d/1eZJeYSYT20N1AbHliUTPzfRH0kvmC-Cm/view?usp=sharing",
     "modVersion":
     {
         "major": 1,
         "minor": 2,
         "patch": 0
-    }
+    },
+	"starsectorVersion":"0.98a-RC8",
+	"directDownloadURL":"https://github.com/Vladitron96/FreeOrbit/releases/latest/download/FreeOrbit_v1.2.zip",
+	"changelogURL":"https://raw.githubusercontent.com/Vladitron96/FreeOrbit/main/changelog.md"
 }

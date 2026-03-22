@@ -17,34 +17,22 @@ public class FreeOrbitScript implements EveryFrameScript {
 
     private float getReductionMultiplier() {
         if (Global.getSettings().getModManager().isModEnabled("lunalib")) {
-            try {
-                Integer pct = lunalib.lunaSettings.LunaSettings.getInt(MOD_ID, SETTING_ID);
-                if (pct != null) {
-                    return 1f - (pct / 100f);
-                }
-            } catch (Exception e) {
-                // Fallback to free if something goes wrong
-            }
+            // Should crash if the setting is missing
+            final int pct = lunalib.lunaSettings.LunaSettings.getInt(MOD_ID, SETTING_ID);
+            return 1f - (pct / 100f);
         }
-        return 0f; // Default: completely free
+        return 0f;
     }
 
-    @Override
-    public boolean isDone() {
-        return false;
-    }
-
-    @Override
-    public boolean runWhilePaused() {
-        return false;
-    }
+    public boolean isDone() {return false;}
+    public boolean runWhilePaused() {return false;}
 
     @Override
     public void advance(float amount) {
-        CampaignFleetAPI fleet = Global.getSector().getPlayerFleet();
+        final CampaignFleetAPI fleet = Global.getSector().getPlayerFleet();
         if (fleet == null) return;
 
-        boolean isOrbiting = fleet.getOrbit() != null;
+        final boolean isOrbiting = fleet.getOrbit() != null;
 
         if (isOrbiting) {
             applyFreeOrbit(fleet);
@@ -56,15 +44,15 @@ public class FreeOrbitScript implements EveryFrameScript {
     }
 
     private void applyFreeOrbit(CampaignFleetAPI fleet) {
-        float mult = getReductionMultiplier();
-        List<FleetMemberAPI> members = fleet.getFleetData().getMembersListCopy();
+        final float mult = getReductionMultiplier();
+        final List<FleetMemberAPI> members = fleet.getFleetData().getMembersListCopy();
         for (FleetMemberAPI member : members) {
             member.getStats().getSuppliesPerMonth().modifyMult(STAT_ID, mult);
         }
     }
 
     private void removeFreeOrbit(CampaignFleetAPI fleet) {
-        List<FleetMemberAPI> members = fleet.getFleetData().getMembersListCopy();
+        final List<FleetMemberAPI> members = fleet.getFleetData().getMembersListCopy();
         for (FleetMemberAPI member : members) {
             member.getStats().getSuppliesPerMonth().unmodify(STAT_ID);
         }
